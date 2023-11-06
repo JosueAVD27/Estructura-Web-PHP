@@ -39,6 +39,11 @@ Estructura de pagina web con manejo de sesiones, CRUD, notificaciones, temporiza
 - `/update_scss.bat`: Codigo de ejecucción solo de los scss necesarios (Actualizacion masiva)
 - `/index.php`: Lógica de la aplicación
 
+## Configuración (Producción)
+Hay varias configuraciones que se debe agregar en el caso de que la aplicacion pase a produccion, algunas estan debidamente comentadas en el archivo en cuestión pero se hara mencion en este apartado.
+- `index.php`: Se debe asignar a la variagle de $url la variable $request_uri
+- `configs/connections/connection.php`: Se debe cambiar las credenciales de la base de datos y tambien al final las rutas principales del proyecto junto con el controlador de las tablas de la base de datos y el tiempo de la sesión.
+- `assets/js/structure/routes.js`: Se debe cambiar el valor especificado en la funcion definirNivel() de 5 a 3.
 
 ## Uso
 
@@ -46,7 +51,7 @@ Se tiene 2 logins unno para administrador y otro para usuario, donde en el de ad
 
 ## Licencia
 
-Este proyecto está bajo la Licencia BSD 3-Clause. Ver el archivo LICENSE.md para más detalles.
+Este proyecto está bajo la licencia [Licencia BSD 3](LICENSE).
 
 ## Contacto
 

@@ -52,6 +52,11 @@ class Conectar
     }
 }
 
+// Ruta principal del proyecto
 define('RUTA', 'http://localhost/Estructura_PHP/');
 
+// Controlador de la tablade la base de datos
 define('CONTROLADOR_TABLA', 'st');
+
+// Definir el tiempo de la sesión
+define('TIME_SESSION', 30);

@@ -1,8 +1,11 @@
+// Variable tiempo de sesion
+var G_time_session = $('#time_session_x').val();
+
 var one_second = 1000,
     one_minute = one_second * 60,
     one_hour = one_minute * 60,
     face = document.getElementById('lazy'),
-    tiempo = 30; //Tiempo de la sesion en minutos
+    tiempo = G_time_session; //Tiempo de la sesion en minutos
 
 var requestAnimationFrame =
     window.requestAnimationFrame ||

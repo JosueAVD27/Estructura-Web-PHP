@@ -8,7 +8,7 @@ $usuario = new Usuario();
 function timer_sesion()
 {
     // Guardar la fecha de finalización en una cookie (30 min)
-    $time = 30;
+    $time = TIME_SESSION;
     $endDate = time() + $time * 60;
     return setcookie('timerEndDate', $endDate, time() + $time * 60);
 }

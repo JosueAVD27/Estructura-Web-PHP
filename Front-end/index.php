@@ -8,7 +8,9 @@ require_once 'configs/global/vars.php';
 // Obtener la URL solicitada
 $folderPath = dirname($_SERVER['SCRIPT_NAME']);
 $request_uri = $_SERVER['REQUEST_URI']; //Esta ruta es para produccion
-$url = substr($request_uri, strlen($folderPath)); //Esta ruta es para local
+$url_local = substr($request_uri, strlen($folderPath)); //Esta ruta es para local
+
+$url = $url_local;  //Cambiar aqui la ruta para local o producción
 
 
 // Incluir archivos de rutas específicos
