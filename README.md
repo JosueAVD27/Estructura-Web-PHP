@@ -6,6 +6,7 @@ Estructura de pagina web con manejo de sesiones, CRUD, notificaciones, temporiza
 ![Login administrador](blob/login_admin.jpg)
 ![Crud usuarios](blob/crud_users.jpg)
 ![Perfil usuario](blob/profile_user.jpg)
+![Notificaciones](blob/notifications.jpg)
 
 ## Características
 
