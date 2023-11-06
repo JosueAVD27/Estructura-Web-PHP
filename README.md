@@ -58,4 +58,4 @@ Este proyecto está bajo la licencia [Licencia BSD 3](LICENSE).
 - Autor: Josue Velasquez
 - Email: josue27.velasquez9@gmail.com
 - Sitio Web: https://armandovelasquez.com
-- Plataforma: http://plataforma.armandovelasquez.com
+- Plataforma: https://plataforma.armandovelasquez.com
