@@ -53,10 +53,10 @@ CREATE TABLE `st_notificacion` (
   `mensaje_notificacion` text NOT NULL,
   `btnNombre_notificacion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `btnFuncion_notificacion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `grupo_notificacion` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_usuario_destino` int(11) NOT NULL,
-  `id_usuario_exclusion` int(11) NOT NULL,
+  `grupo_notificacion` int(11) NULL,
+  `id_usuario` int(11) NULL,
+  `id_usuario_destino` int(11) NULL,
+  `id_usuario_exclusion` int(11) NULL,
   `fechaCreacion_notificacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

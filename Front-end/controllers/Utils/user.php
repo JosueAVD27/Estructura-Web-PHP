@@ -15,7 +15,7 @@ function timer_sesion()
 
 
 // Solicitud de controlador
-switch ($_GET["st"]) {
+switch ($_GET[CONTROLADOR_TABLA]) {
 
     // Login administrador
     case "login_admin":

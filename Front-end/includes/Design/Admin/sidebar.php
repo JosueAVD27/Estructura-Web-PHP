@@ -1,6 +1,6 @@
 <section id="sidebar">
     <a href="<?= RUTA ?>" class="brand">
-        <img class="logo_site" src="<?= RUTA ?>assets/img/logo/logoJosue.png" alt="Logo">
+        <img class="logo_site" src="<?= RUTA ?>assets/img/logo/LogoJosue.png" alt="Logo">
         <div class="title_text" id="title_page_sidebar">
             <p><?= $G_nombre_sito ?></p>
         </div>
