@@ -1,0 +1,186 @@
+@use '../vars/colors' as color;
+@use '../animations/keyframes' as animate;
+
+// LETRAS
+.main {
+    // Letra A
+    &_a {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        clip-path: polygon(20% 100%, 50% 20%, 80% 100%, 100% 100%, 60% 0, 40% 0, 0 100%);
+        background-color: color.$bg_elements;
+        z-index: 10000;
+        bottom: 0%;
+        left: 0%;
+        transition: animate.$transition;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 5px; // Ajusta el desplazamiento vertical
+            left: 18px; // Ajusta el desplazamiento horizontal
+            width: 120%;
+            height: 120%;
+            border-radius: 20px 0px 0px 0px;
+            box-shadow:
+                inset 0px 10px 10px darken(color.$shadow, 10%),
+                inset 6px 6px 100px color.$white;
+            transform: rotate(22deg);
+        }
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -6px; // Ajusta el desplazamiento vertical
+            left: 67px; // Ajusta el desplazamiento horizontal
+            width: 120%;
+            height: 120%;
+            border-radius: 0px 0px 0px 0px;
+            box-shadow:
+                inset 0px 10px 10px darken(color.$shadow, 10%);
+            transform: rotate(159deg);
+        }
+    }
+
+    // Letra J
+    &_j {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        clip-path: polygon(25% 99%, 22% 97%, 21% 94%, 20% 90%, 21% 86%, 22% 83%, 25% 81%, 30% 80%, 60% 80%, 60% 0, 80% 0, 80% 80%, 80% 90%, 78% 95%, 75% 98%, 70% 100%, 30% 100%);
+        background-color: color.$bg_elements;
+        z-index: 10000;
+        bottom: 0%;
+        left: 25%;
+        transition: animate.$transition;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -20px; // Ajusta el desplazamiento vertical
+            left: 20px; // Ajusta el desplazamiento horizontal
+            width: 120%;
+            height: 120%;
+            border-radius: 0px 0px 0px 10px;
+            box-shadow:
+                inset 0px 0px 10px darken(color.$shadow, 10%),
+                inset 6px 6px 100px color.$white;
+            transform: rotate(0deg);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -10px; // Ajusta el desplazamiento vertical
+            left: 60px; // Ajusta el desplazamiento horizontal
+            width: 80%;
+            height: 90%;
+            border-radius: 0px 0px 0px 0px;
+            box-shadow:
+                inset 0px 10px 10px darken(color.$shadow, 10%);
+            transform: rotate(0deg);
+        }
+    }
+
+    // Letra V
+    &_v {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        clip-path: polygon(0% 0%, 20% 0, 50% 80%, 80% 0, 100% 0, 60% 100%, 40% 100%);
+        background-color: color.$bg_elements;
+        z-index: 10000;
+        bottom: 0%;
+        left: 50%;
+        transition: animate.$transition;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -25px; // Ajusta el desplazamiento vertical
+            left: 19px; // Ajusta el desplazamiento horizontal
+            width: 120%;
+            height: 120%;
+            border-radius: 0px 0px 0px 0px;
+            box-shadow:
+                inset 0px 0px 10px darken(color.$shadow, 10%),
+                inset 6px 6px 100px color.$white;
+            transform: rotate(68deg);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 1px; // Ajusta el desplazamiento vertical
+            left: 64px; // Ajusta el desplazamiento horizontal
+            width: 100%;
+            height: 100%;
+            border-radius: 10px 10px 10px 0px;
+            box-shadow:
+                inset 0px 10px 10px darken(color.$shadow, 10%);
+            transform: rotate(20.5deg);
+        }
+    }
+
+    // Letra D
+    &_d {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 0px 0px 0px 0px;
+        clip-path: ellipse(100% 50% at 0% 50%);
+        background-color: color.$bg_elements;
+        z-index: 10000;
+        bottom: 0%;
+        left: 80%;
+        transition: animate.$transition;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -88px; // Ajusta el desplazamiento vertical
+            left: -74px; // Ajusta el desplazamiento horizontal
+            width: 300%;
+            height: 100%;
+            border-radius: 0px 150px 0px 0px;
+            box-shadow:
+                inset 0px 10px 10px darken(color.$shadow, 10%);
+            transform: rotate(100deg);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -0px; // Ajusta el desplazamiento vertical
+            left: 0px; // Ajusta el desplazamiento horizontal
+            width: 120%;
+            height: 120%;
+            border-radius: 0px 0px 0px 0px;
+            box-shadow:
+                inset 0px 0px 10px darken(color.$shadow, 10%),
+                inset 6px 6px 100px color.$white;
+        }
+    }
+
+    // Letra T
+    &_t {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 0px 0px 0px 0px;
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 60% 20%, 60% 100%, 40% 100%, 40% 20%, 0 20%);
+        clip-path: ellipse(100% 50% at 0% 50%);
+        background-color: color.$bg_elements;
+        box-shadow:
+            inset 6px 6px 10px color.$shadow,
+            inset 6px 20px 10px color.$white,
+            inset 45px 0px 10px color.$shadow,
+            inset -6px -6px 10px color.$white;
+
+        bottom: 0%;
+        left: -70%;
+        transition: animate.$transition;
+    }
+}

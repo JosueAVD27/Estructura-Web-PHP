@@ -1,0 +1,22 @@
+#content {
+	position: relative;
+	width: calc(100% - 230px);
+	left: 230px;
+	transition: all .3s ease;
+
+	@media (max-width: 300px) {
+		width: calc(100% - 200px);
+		left: 200px;
+	}
+}
+
+#sidebar.hide+#content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+.contenedor_subtitulo_pagina{
+	h3 {
+		margin-left: 10px;
+	}
+}

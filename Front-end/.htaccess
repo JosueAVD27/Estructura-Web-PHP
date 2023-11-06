@@ -1,0 +1,25 @@
+RewriteEngine On
+RewriteBase /Estructura_PHP/
+
+Options -Indexes
+ErrorDocument 405 /Estructura_PHP/index.php
+ErrorDocument 404 /Estructura_PHP/index.php
+ErrorDocument 403 /Estructura_PHP/index.php
+ErrorDocument 402 /Estructura_PHP/index.php
+ErrorDocument 401 /Estructura_PHP/index.php
+ErrorDocument 400 /Estructura_PHP/index.php
+
+
+# Permitir el acceso directo a recursos (CSS, JS, imágenes, etc.)
+RewriteRule ^(assets/|favicon\.ico) - [L]
+
+# Redirigir todas las solicitudes a index.php, excepto para recursos
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?uri=$1 [QSA,L]
+
+
+# log PHP errors to a file
+php_flag log_errors on
+php_value error_reporting 32767
+php_value error_log "error_log.txt"
