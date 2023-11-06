@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION["id_usuario"])) {
-    header("Location:" . Conectar::ruta() . $inicio_admin);
+    header("Location:" . Conectar::ruta() . $inicio);
 } else {
     ?>
     <!DOCTYPE html>
