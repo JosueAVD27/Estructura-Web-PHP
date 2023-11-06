@@ -20,8 +20,8 @@ class Usuario extends Globals
             ];
 
         } else {
-            $sql = "SELECT U.*, R.nombre_rol FROM ".CONTROLADOR_TABLA."_usuario AS U
-                    INNER JOIN ".CONTROLADOR_TABLA."_rol AS R ON R.id_rol = U.id_rol
+            $sql = "SELECT U.*, R.nombre_rol FROM " . CONTROLADOR_TABLA . "_usuario AS U
+                    INNER JOIN " . CONTROLADOR_TABLA . "_rol AS R ON R.id_rol = U.id_rol
                     WHERE correo_usuario = ? AND U.id_estado = ? AND R.id_rol = ?";
 
             $stmt = $this->conectar->prepare($sql);
@@ -77,8 +77,8 @@ class Usuario extends Globals
         if ($dni_usuario) {
 
             $sql = "SELECT U.*, R.nombre_rol 
-                    FROM ".CONTROLADOR_TABLA."_usuario AS U
-                    INNER JOIN ".CONTROLADOR_TABLA."_rol AS R ON R.id_rol = U.id_rol
+                    FROM " . CONTROLADOR_TABLA . "_usuario AS U
+                    INNER JOIN " . CONTROLADOR_TABLA . "_rol AS R ON R.id_rol = U.id_rol
                     WHERE U.dni_usuario = ? and U.id_estado = ? and U.id_rol = ?";
 
             $stmt = $this->conectar->prepare($sql);
@@ -131,7 +131,7 @@ class Usuario extends Globals
      */
     public function get_usuario_id($id_usuario)
     {
-        $sql = "SELECT * FROM ".CONTROLADOR_TABLA."_usuario 
+        $sql = "SELECT * FROM " . CONTROLADOR_TABLA . "_usuario 
                 WHERE id_usuario = ?";
 
         $sql = $this->conectar->prepare($sql);
@@ -156,7 +156,7 @@ class Usuario extends Globals
         $sexo_usuario,
         $foto_usuario
     ) {
-        $sql = "UPDATE ".CONTROLADOR_TABLA."_usuario 
+        $sql = "UPDATE " . CONTROLADOR_TABLA . "_usuario 
                 SET
                     nombre_usuario = ?,
                     apellidoPaterno_usuario = ?,
@@ -221,7 +221,7 @@ class Usuario extends Globals
         $password_cifrada = password_hash($passwd, PASSWORD_DEFAULT);
 
         try {
-            $sql = "INSERT INTO ".CONTROLADOR_TABLA."_usuario (nombre_usuario, apellidoPaterno_usuario, apellidoMaterno_usuario, 
+            $sql = "INSERT INTO " . CONTROLADOR_TABLA . "_usuario (nombre_usuario, apellidoPaterno_usuario, apellidoMaterno_usuario, 
                                             correo_usuario, password_usuario, sexo_usuario, telefono_usuario, dni_usuario, 
                                             id_pais, fechaCreacion_usuario, fechaDesactivacion_usuario, id_rol, id_estado) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?);";
@@ -280,7 +280,7 @@ class Usuario extends Globals
         $id_pais,
         $id_rol
     ) {
-        $sql = "UPDATE ".CONTROLADOR_TABLA."_usuario
+        $sql = "UPDATE " . CONTROLADOR_TABLA . "_usuario
                 SET
                     nombre_usuario = ?,
                     apellidoPaterno_usuario = ?,
@@ -328,7 +328,7 @@ class Usuario extends Globals
         $id_usuario,
         $password_usuario
     ) {
-        $sql = "UPDATE ".CONTROLADOR_TABLA."_usuario 
+        $sql = "UPDATE " . CONTROLADOR_TABLA . "_usuario 
                 SET
                     password_usuario = ?
                 WHERE 
@@ -370,9 +370,9 @@ class Usuario extends Globals
 
     public function get_resultados($offset, $limit, $filtro, $id_estado)
     {
-        $sql = "SELECT * FROM ".CONTROLADOR_TABLA."_usuario AS U
-                INNER JOIN ".CONTROLADOR_TABLA."_rol AS R ON U.id_rol = R.id_rol      
-                INNER JOIN ".CONTROLADOR_TABLA."_pais AS P ON U.id_pais = P.id_pais  
+        $sql = "SELECT * FROM " . CONTROLADOR_TABLA . "_usuario AS U
+                INNER JOIN " . CONTROLADOR_TABLA . "_rol AS R ON U.id_rol = R.id_rol      
+                INNER JOIN " . CONTROLADOR_TABLA . "_pais AS P ON U.id_pais = P.id_pais  
                 WHERE U.id_estado = ?";
 
         if ($filtro != '') {
@@ -430,9 +430,9 @@ class Usuario extends Globals
 
     public function get_total_usuarios($filtro, $id_estado)
     {
-        $sql = "SELECT COUNT(*) as total FROM ".CONTROLADOR_TABLA."_usuario AS U
-                INNER JOIN ".CONTROLADOR_TABLA."_rol AS R ON U.id_rol = R.id_rol      
-                INNER JOIN ".CONTROLADOR_TABLA."_pais AS P ON U.id_pais = P.id_pais  
+        $sql = "SELECT COUNT(*) as total FROM " . CONTROLADOR_TABLA . "_usuario AS U
+                INNER JOIN " . CONTROLADOR_TABLA . "_rol AS R ON U.id_rol = R.id_rol      
+                INNER JOIN " . CONTROLADOR_TABLA . "_pais AS P ON U.id_pais = P.id_pais  
                 WHERE U.id_estado = ?";
 
         if ($filtro != '') {
@@ -480,7 +480,7 @@ class Usuario extends Globals
             $notificacion = new Notificacion();
             $notificacion->notificacion_delete_user($id_usuario_accion, $id_rol_accion, $id_usuario);
 
-            $sql = "DELETE FROM ".CONTROLADOR_TABLA."_usuario 
+            $sql = "DELETE FROM " . CONTROLADOR_TABLA . "_usuario 
                     WHERE id_usuario = ?";
 
             $sql = $this->conectar->prepare($sql);
@@ -509,7 +509,7 @@ class Usuario extends Globals
      */
     public function desactivar_usuario($id_usuario)
     {
-        $sql = "UPDATE ".CONTROLADOR_TABLA."_usuario 
+        $sql = "UPDATE " . CONTROLADOR_TABLA . "_usuario 
                     SET 
                         id_estado = ?, 
                         fechaDesactivacion_usuario = NOW() 
@@ -539,7 +539,7 @@ class Usuario extends Globals
      */
     public function activar_usuario($id_usuario)
     {
-        $sql = "UPDATE ".CONTROLADOR_TABLA."_usuario 
+        $sql = "UPDATE " . CONTROLADOR_TABLA . "_usuario 
                 SET 
                     id_estado = ?, 
                     fechaDesactivacion_usuario = ? 
@@ -570,7 +570,7 @@ class Usuario extends Globals
      */
     public function delete_photo($id_usuario)
     {
-        $sql = "UPDATE ".CONTROLADOR_TABLA."_usuario 
+        $sql = "UPDATE " . CONTROLADOR_TABLA . "_usuario 
                 SET 
                     foto_usuario = ? 
                 WHERE 
@@ -599,7 +599,7 @@ class Usuario extends Globals
      */
     public function get_Paises()
     {
-        $sql = "SELECT * FROM ".CONTROLADOR_TABLA."_pais 
+        $sql = "SELECT * FROM " . CONTROLADOR_TABLA . "_pais 
                 WHERE id_pais <> ?";
 
         $sql = $this->conectar->prepare($sql);
@@ -616,7 +616,7 @@ class Usuario extends Globals
      */
     public function get_Paises_activos()
     {
-        $sql = "SELECT * FROM ".CONTROLADOR_TABLA."_pais 
+        $sql = "SELECT * FROM " . CONTROLADOR_TABLA . "_pais 
                 WHERE id_pais <> ? AND id_estado = ?";
 
         $sql = $this->conectar->prepare($sql);
@@ -634,7 +634,7 @@ class Usuario extends Globals
      */
     public function get_Roles()
     {
-        $sql = "SELECT * FROM ".CONTROLADOR_TABLA."_rol 
+        $sql = "SELECT * FROM " . CONTROLADOR_TABLA . "_rol 
                 WHERE id_rol <> ?";
 
         $sql = $this->conectar->prepare($sql);
@@ -652,7 +652,7 @@ class Usuario extends Globals
     public function verificar_Cedula($cedula)
     {
         $sql = "SELECT COUNT(*) AS count 
-                FROM ".CONTROLADOR_TABLA."_usuario AS U
+                FROM " . CONTROLADOR_TABLA . "_usuario AS U
                 WHERE U.dni_usuario = ?";
 
         $stmt = $this->conectar->prepare($sql);
@@ -661,9 +661,15 @@ class Usuario extends Globals
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result['count'] > 0) {
-            return 'existe';
+            return [
+                "status" => "existe",
+                "message" => "La cédula ya está registrada."
+            ];
         } else {
-            return '';
+            return [
+                "status" => "no existe",
+                "message" => "despejado"
+            ];
         }
     }
 
@@ -675,7 +681,7 @@ class Usuario extends Globals
     public function verificar_Correo($correo)
     {
         $sql = "SELECT COUNT(*) AS count 
-                FROM ".CONTROLADOR_TABLA."_usuario AS U
+                FROM " . CONTROLADOR_TABLA . "_usuario AS U
                 WHERE U.correo_usuario = ?";
 
         $stmt = $this->conectar->prepare($sql);
@@ -684,9 +690,15 @@ class Usuario extends Globals
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result['count'] > 0) {
-            return 'existe';
+            return [
+                "status" => "existe",
+                "message" => "El correo ya está registrado."
+            ];
         } else {
-            return '';
+            return [
+                "status" => "no existe",
+                "message" => "despejado"
+            ];
         }
     }
 
@@ -712,9 +724,9 @@ class Usuario extends Globals
         $sql = "SELECT U.id_usuario, U.nombre_usuario, U.apellidoPaterno_usuario, U.apellidoMaterno_usuario, 
                        U.dni_usuario, U.telefono_usuario, U.correo_usuario, U.sexo_usuario, P.nombre_pais, 
                        P.abreviatura_pais, R.nombre_rol, U.fechaCreacion_usuario, U.fechaDesactivacion_usuario 
-                FROM ".CONTROLADOR_TABLA."_usuario AS U
-                INNER JOIN ".CONTROLADOR_TABLA."_rol AS R ON U.id_rol = R.id_rol      
-                INNER JOIN ".CONTROLADOR_TABLA."_pais AS P ON U.id_pais = P.id_pais 
+                FROM " . CONTROLADOR_TABLA . "_usuario AS U
+                INNER JOIN " . CONTROLADOR_TABLA . "_rol AS R ON U.id_rol = R.id_rol      
+                INNER JOIN " . CONTROLADOR_TABLA . "_pais AS P ON U.id_pais = P.id_pais 
                 WHERE U.id_estado = :estado";
 
         // Agrega condiciones al SQL si hay un filtro

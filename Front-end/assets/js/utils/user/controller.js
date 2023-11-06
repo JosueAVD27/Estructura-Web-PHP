@@ -447,16 +447,12 @@ function init() {
 function nuevo_actualizar(e) {
     e.preventDefault();
 
-    var message_exist_cedula = "La cédula ya está registrada.";
-    var message_exist_correo = "El correo ya está registrado.";
-
     var id_usuario = $('#id_usuario').val();
     var cedula = $('#dni_usuario').val();
     var correo = $('#correo_usuario').val();
 
     // No existe un id_usuario, por lo que se inserta uno nuevo
     if (!id_usuario) {
-
         // Validar campos antes de enviar el formulario
         if (!validarCampos()) {
             return; // No enviar el formulario si hay campos vacíos
@@ -464,19 +460,20 @@ function nuevo_actualizar(e) {
 
         // Realizar la validación de la cédula
         validarCedula(cedula, function (resultado) {
-            if (resultado === 'existe') {
+            resultado1 = JSON.parse(resultado);
 
+            if (resultado1.status === 'existe') {
                 // Mostrar un mensaje de error
-                alert_exist(message_exist_cedula);
+                alert_exist(resultado1.message);
 
             } else {
-
                 // Realizar la validación del correo
                 validarCorreo(correo, function (resultado) {
-                    if (resultado === 'existe') {
+                    resultado2 = JSON.parse(resultado);
 
+                    if (resultado2.status === 'existe') {
                         // Mostrar un mensaje de error
-                        alert_exist(message_exist_correo);
+                        alert_exist(resultado2.message);
 
                     } else {
                         enviarFormulario();
@@ -484,6 +481,7 @@ function nuevo_actualizar(e) {
                 });
             }
         });
+
     } else {
         // Obtener los datos para la funcion
         $.post("../controllers/Utils/user.php?st=mostrar_informacion_usuario", { id_usuario: id_usuario }, function (data) {
@@ -496,21 +494,22 @@ function nuevo_actualizar(e) {
 
             // Realizar la validación de la cédula
             validarCedula(cedula, function (resultado) {
+                resultado1 = JSON.parse(resultado);
 
                 // Permitir actualizar con una cedula diferente o con la que ya tenia
-                if (resultado === 'existe' && cedula != data.dni_usuario) {
-
+                if (resultado1.status === 'existe' && cedula != data.dni_usuario) {
                     // Mostrar un mensaje de error
-                    alert_exist(message_exist_cedula);
+                    alert_exist(resultado1.message);
 
                 } else {
                     // Realizar la validación del correo
                     validarCorreo(correo, function (resultado) {
-                        // Permitir actualizar con un correo diferente o con el que ya tenia
-                        if (resultado === 'existe' && correo != data.correo_usuario) {
+                        resultado2 = JSON.parse(resultado);
 
+                        // Permitir actualizar con un correo diferente o con el que ya tenia
+                        if (resultado2.status === 'existe' && correo != data.correo_usuario) {
                             // Mostrar un mensaje de error
-                            alert_exist(message_exist_correo);
+                            alert_exist(resultado2.message);
 
                         } else {
                             enviarFormulario();

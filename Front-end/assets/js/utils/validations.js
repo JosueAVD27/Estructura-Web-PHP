@@ -18,7 +18,7 @@ function obtenerPaises_activos() {
     var relPath = definirNivel();
     // Designar la URL Ajax dependiendo del directorio actual
     var urlAjax = relPath + 'controllers/Utils/user.php?st=obtener_paises_activos';
-    
+
     todosPais(urlAjax);
 }
 
@@ -442,7 +442,7 @@ function validarNumeroCedula(idPais, cedula) {
  */
 // Función para validar si ya existe la cédula en la base de datos
 function validarCedula(cedula, callback) {
-    
+
     // Designa la ruta dependiendo del directorio en el que se encuentra
     var relPath = definirNivel();
 
@@ -459,17 +459,12 @@ function validarCedula(cedula, callback) {
         var urlAjax = relPath + "controllers/Utils/user.php?st=verificar_cedula";
     }
 
-    $.ajax({
-        url: urlAjax,
-        type: "POST",
-        data: { cedula: cedula },
-        success: function (resultado) {
-            callback(resultado);
-        },
-        error: function () {
-            // Manejar el error de la solicitud AJAX
-            callback('error');
-        }
+    $.post(urlAjax, { cedula: cedula }).done(function (resultado) {
+
+        callback(resultado);
+
+    }).fail(function (error) {
+        callback('error');
     });
 }
 
@@ -498,17 +493,12 @@ function validarCorreo(correo, callback) {
         var urlAjax = relPath + "controllers/Utils/user.php?st=verificar_correo";
     }
 
-    $.ajax({
-        url: urlAjax,
-        type: "POST",
-        data: { correo: correo },
-        success: function (resultado) {
-            callback(resultado);
-        },
-        error: function () {
-            // Manejar el error de la solicitud AJAX
-            callback('error');
-        }
+    $.post(urlAjax, { correo: correo }).done(function (resultado) {
+
+        callback(resultado);
+
+    }).fail(function (error) {
+        callback('error');
     });
 }
 

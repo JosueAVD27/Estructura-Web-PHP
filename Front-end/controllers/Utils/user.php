@@ -331,7 +331,7 @@ switch ($_GET[CONTROLADOR_TABLA]) {
     case "verificar_cedula":
         $cedula = $_POST['cedula'];
         $resultado = $usuario->verificar_Cedula($cedula);
-        echo $resultado;
+        echo json_encode($resultado);
         break;
 
 
@@ -340,7 +340,7 @@ switch ($_GET[CONTROLADOR_TABLA]) {
     case "verificar_correo":
         $correo = $_POST['correo'];
         $resultado = $usuario->verificar_Correo($correo);
-        echo $resultado;
+        echo json_encode($resultado);
         break;
 
 

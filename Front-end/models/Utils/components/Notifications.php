@@ -353,6 +353,7 @@ class Notificacion extends Conectar
 
         if ($resultado2) {
             $id_usuario = null;
+            $id_rol = null;
 
             // Notificacion de bienvenida
             $nombre_usuario_nuevo = $resultado2['nombre_usuario'];
