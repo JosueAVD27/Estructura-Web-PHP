@@ -1,5 +1,6 @@
 // Variable tiempo de sesion
 var G_time_session = $('#time_session_x').val();
+var G_route_page = $('#route_page_x').val();
 
 var one_second = 1000,
     one_minute = one_second * 60,
@@ -55,7 +56,8 @@ function tick() {
         face.innerText = '00:00:00';
 
         // Redirigir a la página de cierre de sesión
-        window.location.href = 'http://localhost/Estructura_PHP/logout'
+        window.location.href = G_route_page + 'logout';
+
     } else {
         var parts = [];
         parts[0] = '' + Math.floor(remainingTime / one_hour);

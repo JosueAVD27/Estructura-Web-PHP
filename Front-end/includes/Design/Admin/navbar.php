@@ -11,6 +11,7 @@
     <input type="hidden" id="user_id_x" value="<?= $_SESSION["id_usuario"] ?>">
     <input type="hidden" id="rol_id_x" value="<?= $_SESSION["id_rol"] ?>">
     <input type="hidden" id="time_session_x" value="<?= TIME_SESSION ?>">
+    <input type="hidden" id="route_page_x" value="<?= RUTA ?>">
 
     <div class="contenedor_notificacion">
         <button type="button" id="toggleBtn">

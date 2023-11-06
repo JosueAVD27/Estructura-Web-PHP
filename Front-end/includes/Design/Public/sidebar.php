@@ -1,8 +1,10 @@
 <section id="sidebar">
-    <a href="<?= RUTA ?>" class="brand">
+    <a href="<?= RUTA . ($_SESSION['id_rol'] == $G_rol_user ? $inicio_user : $inicio_admin) ?>" class="brand">
         <img class="logo_site" src="<?= RUTA ?>assets/img/logo/LogoJosue.png" alt="Logo">
         <div class="title_text" id="title_page_sidebar">
-            <p><?= $G_nombre_sito ?></p>
+            <p>
+                <?= $G_nombre_sito ?>
+            </p>
         </div>
     </a>
 

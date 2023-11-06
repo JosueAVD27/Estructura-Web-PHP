@@ -1,13 +1,16 @@
 <section id="sidebar">
-    <a href="<?= RUTA ?>" class="brand">
+    <a href="<?= RUTA . ($_SESSION['id_rol'] == $G_rol_user ? $inicio_user : $inicio_admin) ?>" class="brand">
         <img class="logo_site" src="<?= RUTA ?>assets/img/logo/LogoJosue.png" alt="Logo">
         <div class="title_text" id="title_page_sidebar">
-            <p><?= $G_nombre_sito ?></p>
+            <p>
+                <?= $G_nombre_sito ?>
+            </p>
         </div>
     </a>
 
     <ul class="side-menu">
-        <li><a href="<?= RUTA . $inicio_admin ?>" class="sidebar_inicio"><i class='bx bxs-dashboard icon'></i> Inicio</a></li>
+        <li><a href="<?= RUTA . $inicio_admin ?>" class="sidebar_inicio"><i class='bx bxs-dashboard icon'></i>
+                Inicio</a></li>
 
         <li class="divider" data-text="regístro">REGISTRO</li>
         <li><a href="<?= RUTA . $Users ?>"><i class='bx bxs-user-detail icon'></i> Usuarios</a></li>

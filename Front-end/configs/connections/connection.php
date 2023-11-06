@@ -3,6 +3,7 @@
 date_default_timezone_set('America/Bogota');
 
 // Inicializando la sesion del usuario
+session_set_cookie_params(0);
 SESSION_START();
 
 // Función personalizada para manejar errores
