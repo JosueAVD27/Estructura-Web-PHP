@@ -1,12 +1,14 @@
 # Estructura-Web-PHP
 Estructura de pagina web con manejo de sesiones, CRUD, notificaciones, temporizador de sesión, manejo de usuarios
 
-![Login usuario](blob/login.jpg)
-![Registro usuario](blob/register.jpg)
-![Login administrador](blob/login_admin.jpg)
-![Crud usuarios](blob/crud_users.jpg)
-![Perfil usuario](blob/profile_user.jpg)
-![Notificaciones](blob/notifications.jpg)
+<div style="display: flex">
+  <img src="blob/login.jpg" alt="Login usuario" width="400"/>
+  <img src="blob/register.jpg" alt="Registro usuario" width="400"/>
+  <img src="blob/login_admin.jpg" alt="Login administrador" width="400"/>
+  <img src="blob/crud_users.jpg" alt="Crud usuarios" width="400"/>
+  <img src="blob/profile_user.jpg" alt="Perfil usuario" width="400"/>
+  <img src="blob/notifications.jpg" alt="Notificaciones" width="400"/>
+</div>
 
 ## Características
 
